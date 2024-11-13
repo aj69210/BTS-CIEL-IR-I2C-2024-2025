@@ -1,0 +1,39 @@
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0*27, 16, 2);
+
+
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+  
+  lcd.begin(16,2);
+  lcd.print("bonjour");
+}
+
+void loop()
+{
+  lcd.setCursor(0,1);
+  lcd.setBacklight(1);
+  
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  lcd.setBacklight(0);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+  
+  lcd.begin(16,2);
+  lcd.init();
+  lcd.backlight();
+}
+
+void calculatrice()
+{
+	int nbr1=0;
+  	int nbr2=0;
+  	char signe;
+  
+  lcd.print("choisissez votre premier nombre");
+  lcd.print("choisissez votre deuxième nombre");
+  lcd.print("choisissez votre signe");
+}
