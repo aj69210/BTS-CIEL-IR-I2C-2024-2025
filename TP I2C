@@ -1,0 +1,52 @@
+// C++ code
+//
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(32, 16, 2);
+
+
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+  
+  lcd.print("bonjour");
+  lcd.begin(16,2);
+  lcd.init();
+  lcd.backlight();
+  Serial.begin(9600);
+  
+  lcd.clear();
+  lcd.cursor();
+  
+}
+
+void loop()
+{
+  lcd.setCursor(0,1);
+  lcd.setBacklight(1);
+  
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  lcd.setBacklight(0);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+}
+
+void rentrerval()
+{
+	int buff=Serial.available;
+  	Serial.print(s);
+  	if(buff>0)
+    {
+      return serial.read();
+    }
+}
+
+void operation
+{
+	case '+';
+  	case '-';
+  	case '*';
+    case '/';
+}
