@@ -1,0 +1,42 @@
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(32, 16, 2);
+
+const int PIN_TEMPERATURE = A0;
+const int PIN_HUMIDITE = A1;
+const int PIN_PRESSION = A2;
+const int PIN_LUMIERE = A3;
+
+
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+  
+  lcd.print("bonjour");
+  lcd.begin(16,2);
+  lcd.init();
+  lcd.backlight();
+  Serial.begin(9600);
+  
+ // showsplashscreen();
+  lcd.clear();
+  lcd.cursor();
+  
+}
+
+void displayStartupMessage()
+{
+  lcd.clear();
+  lcd.setCursor(0,1);
+  lcd.setBacklight(1);
+  lcd.setCursor(0, 0);  
+  lcd.print("Station Météo");
+  lcd.setCursor(0, 1);  
+  lcd.print("Initialisation");
+  delay(2000); // Wait for 2000 millisecond(s)
+}
+
+void loop()
+{
+
+}
